@@ -43,30 +43,29 @@ router.get('/:id', (req, res) => {
       'id',
       'tag_name'
     ],
-  // be sure to include its associated Product data
-  include: [
-    {
-      model: Product,
-      attributes: [
-        'id',
-        'product_name',
-        'price',
-        'stock',
-        'category_id'
-      ],
-      through: ProductTag,
-      as: 'tagIds'
+    // be sure to include its associated Product data
+    include: [
+      {
+        model: Product,
+        attributes: [
+          'id',
+          'product_name',
+          'price',
+          'stock',
+          'category_id'
+        ],
+        through: ProductTag,
+        as: 'tagIds'
+      }
+    ]
+  })
+  .then(dbTagData => {
+    // see if a tag matched the id
+    if(!dbTagData) {
+        // if false
+        res.status(404).json({ message: 'No tag found with this id'});
+        return;
     }
-  ]
-})
-.then(dbTagData => {
-  // see if a tag matched the id
-  if(!dbTagData) {
-      // if false
-      res.status(404).json({ message: 'No tag found with this id'});
-      return;
-  }
-});
     // if true
     res.json(dbTagData);
   })
@@ -74,7 +73,7 @@ router.get('/:id', (req, res) => {
   .catch(err => {
       console.log(err);
       res.status(500).json(err)
-
+  });
 });
 
 router.post('/', (req, res) => {

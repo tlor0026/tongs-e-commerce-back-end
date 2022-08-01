@@ -5,13 +5,13 @@ const { Category, Product } = require('../../models');
 
 router.get('/', (req, res) => {
   // find all categories
-    Category.findAll({
+  Category.findAll({
     attributes: [
       'id',
       'category_name'
     ],
-  // be sure to include its associated Products
-      include: [
+    // be sure to include its associated Products
+    include: [
       {
         model: Product,
         attributes: [
@@ -24,10 +24,11 @@ router.get('/', (req, res) => {
       }
     ]
   })
-.then(dbCategoryData => res.json(dbCategoryData))
-.catch(err => {
-    console.log(err);
-    res.status(500).json(err);
+  .then(dbCategoryData => res.json(dbCategoryData))
+  .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+  });
 });
 
 router.get('/:id', (req, res) => {
@@ -40,31 +41,31 @@ router.get('/:id', (req, res) => {
       'id',
       'category_name'
     ],
-  // be sure to include its associated Products
-  include: [
-    {
-      model: Product,
-      attributes: [
-        'id',
-        'product_name',
-        'price',
-        'stock',
-        'category_id'
-      ]
+    // be sure to include its associated Products
+    include: [
+      {
+        model: Product,
+        attributes: [
+          'id',
+          'product_name',
+          'price',
+          'stock',
+          'category_id'
+        ]
+      }
+    ]
+  })
+  .then(dbCategoryData => {
+    if(!dbCategoryData) {
+        res.status(404).json({ message: 'No category found with this id'});
+        return;
     }
-  ]
-})
-.then(dbCategoryData => {
-  if(!dbCategoryData) {
-      res.status(404).json({ message: 'No category found with this id'});
-      return;
-  }
-  res.json(dbCategoryData);
-})
-.catch(err => {
-    console.log(err);
-    res.status(500).json(err)
-});
+    res.json(dbCategoryData);
+  })
+  .catch(err => {
+      console.log(err);
+      res.status(500).json(err)
+  });
 });
 
 router.post('/', (req, res) => {
@@ -115,7 +116,6 @@ router.delete('/:id', (req, res) => {
     console.log(err);
     res.status(500).json(err);
   });
-});
 });
 
 module.exports = router;

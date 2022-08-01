@@ -1,28 +1,27 @@
 {
   "name": "tongs-e-commerce-back-end",
   "version": "1.0.0",
-  "description": "Challenge 13 ",
-  "main": "index.js",
+  "description": "Tongs E Commerece back end",
+  "main": "server.js",
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "watch": "nodemon server.js",
-    "seed": "node seeds/index.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/coding-boot-camp/fantastic-umbrella.git"
+    "url": "git+https://github.com/tlor0026/tongs-e-commerce-back-end.git"
   },
   "author": "Tong Lor",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/coding-boot-camp/fantastic-umbrella/issues"
+    "url": "https://github.com/tlor0026/tongs-e-commerce-back-end/issues"
   },
-  "homepage": "https://github.com/coding-boot-camp/fantastic-umbrella#readme",
+  "homepage": "https://github.com/tlor0026/tongs-e-commerce-back-end#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
     "sequelize": "^5.22.3"
-  }}
-  
+  }
+}
