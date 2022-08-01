@@ -9,7 +9,13 @@
   - [Testing](#testing)
   - [Additional Info](#additional-info)
   ## Description:
-  This project is to show how the back end of this business works! You will see the functionality of how this works in conjution to user inputs. Added is a downloadable video that shows its functionality!
+  This Read Me was generated with my very own Read me Generator!
+  
+  This project is to show how the back end of this business works! You will see the functionality of how this works in conjuction to user inputs. 
+  
+  ![alt text](./assets/capture.png)
+  
+  Within the repository is a downloadable video that shows its functionality!
   ## Installation:
   You will need various Dependencies to be unstalled along with Mysql to take care of the database portion of this project. Dependencies include dotnec, express, mysql2 and sequilize.
   ## Usage:
