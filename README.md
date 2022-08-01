@@ -13,7 +13,7 @@
   
   This project is to show how the back end of this business works! You will see the functionality of how this works in conjuction to user inputs. 
   
-  ![alt text](./assets/capture.png)
+  ![alt text](./assets/Capture.PNG)
   
   Within the repository is a downloadable video that shows its functionality!
   ## Installation:
